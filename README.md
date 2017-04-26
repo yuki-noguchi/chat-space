@@ -4,7 +4,6 @@
 | Column     | Type     | Options                   |
 |:-----------|----------|---------------------------|
 | name       | string   | null: false, unique: true |
-| groupe_id  | integer  | foreign_key: true         |
 
 ### Association
 * has_many :messages
@@ -25,7 +24,6 @@
 | Column     | Type     | Options                   |
 |:-----------|----------|---------------------------|
 | name       | string   | null: false               |
-| user_id    | integer  | foreign_key: true         |
 
 ### Association
 * has_many :messages
