@@ -9,6 +9,9 @@
 * has_many :messages
 * has_many :groups, through: :groupe_users
 
+###Index
+* add_index :users, :name
+
 ## messages table
 | Column     | Type     | Options                   |
 |:-----------|----------|---------------------------|
