@@ -7,7 +7,7 @@
 
 ### Association
 * has_many :messages
-* has_many :groups, through: :groupe_users
+* has_many :groups, through: :group_users
 
 ###Index
 * add_index :users, :name
@@ -18,26 +18,26 @@
 | body       | text     |                           |
 | image      | string   |                           |
 | user_id    | integer  | foreign_key: true         |
-| groupe_id  | integer  | foreign_key: true         |
+| group_id   | integer  | foreign_key: true         |
 ### Association
 * belongs_to :user
-* belongs_to :groupe
+* belongs_to :group
 
-### groupes table
+### groups table
 | Column     | Type     | Options                   |
 |:-----------|----------|---------------------------|
 | name       | string   | null: false               |
 
 ### Association
 * has_many :messages
-* has_many :users, through: :groupe_users
+* has_many :users, through: :group_users
 
-## groupe_users table
+## group_users table
 | Column     | Type     | Options                   |
 |:-----------|----------|---------------------------|
 | user_id    | integer  | foreign_key: true         |
-|groupe_id   | integer  | foreign_key: true         |
+| group_id   | integer  | foreign_key: true         |
 
 ### Association
 * belongs_to :user
-* belomgs_to :groupe
+* belomgs_to :group
