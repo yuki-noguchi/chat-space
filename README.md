@@ -9,7 +9,7 @@
 * has_many :messages
 * has_many :groups, through: :group_users
 
-###Index
+### Index
 * add_index :users, :name
 
 ## messages table
@@ -32,7 +32,7 @@
 * has_many :messages
 * has_many :users, through: :group_users
 
-## group_users table
+### group_users table
 | Column     | Type     | Options                   |
 |:-----------|----------|---------------------------|
 | user_id    | integer  | foreign_key: true         |
