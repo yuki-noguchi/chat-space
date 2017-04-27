@@ -23,7 +23,7 @@ p{
   float: left;
   height: 100%;
     .menu__user{
-      height :93px;
+      height :88px;
       padding:0 20px 27px;
       background-color: #253141;
         h1{
@@ -73,6 +73,27 @@ p{
   .main__contents{
     width: calc(100vw - 340px);
     padding:0 40px;
+    margin-top: 46px;
+    .message{
+      margin-bottom: 40px;
+    }
+      .main__contents__name{
+        font-weight: bold;
+        font-size: 16px;
+        color: #434A54;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      .main__contents__time{
+        color: #999999;
+        font-size: 12px;
+      }
+      .main__contents__message{
+        clear: both;
+        font-size: 14px;
+        color: #434A54;
+      }
   }
   .main__inputarea{
     width: calc(100vw - 340px);
