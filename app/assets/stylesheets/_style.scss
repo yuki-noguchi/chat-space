@@ -18,19 +18,19 @@ p{
 
 .menu {
   color: #ffffff;
-  width: 300px;
+  width: 260px;
   background-color: #2f3e51;
   float: left;
   height: 100%;
-  padding-top: 16px;
     .menu__user{
+      height :93px;
       padding:0 20px 27px;
       background-color: #253141;
         h1{
           font-size: 16px;
           font-weight: bold;
           color: #ffffff;
-          padding-top: 35px;
+          padding-top: 51px;
           .icons{
           float: right;
           }
@@ -52,6 +52,30 @@ p{
 
 .main{
   background-color: #aaaaaa;
-  pading: 0 40px;
   height: 100%;
+  float: right;
+  .main__header{
+    background-color: white;
+    width: calc(100vw - 340px);
+    padding:0 40px;
+    border-bottom: #eeeeee;
+    h1{
+      padding-top: 51px;
+      font-size: 20px;
+      color: #333333;
+      margin-bottom: 15px;
+    }
+    h2{
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+  .main__contents{
+    width: calc(100vw - 340px);
+    padding:0 40px;
+  }
+  .main__inputarea{
+    width: calc(100vw - 340px);
+    padding:0 40px;
+  }
 }
