@@ -51,7 +51,7 @@ p{
 }
 
 .main{
-  background-color: #aaaaaa;
+  background-color: #fafafa;
   height: 100%;
   float: right;
   .main__header{
@@ -96,7 +96,24 @@ p{
       }
   }
   .main__inputarea{
+    background-color: #aaaaaa;
     width: calc(100vw - 340px);
-    padding:0 40px;
+    padding: 20px 40px;
+    position: fixed;
+    bottom: 0;
+      .text{
+        width: calc(100% - 115px);
+        height: 50px;
+        margin: 0 10px;
+        float: left;
+      }
+      .btn{
+        background-color: #38aef0;
+        height: 50px;
+        width: 75px;
+        border: none;
+        margin-left: 15px;
+      }
+    }
   }
-}
+
