@@ -1,8 +1,8 @@
-.main{
+.chat-main{
   background-color: #fafafa;
   height: 100%;
   float: right;
-  .main__header{
+  .chat-main__header{
     position: fixed;
     background-color: white;
     width: calc(100vw - 340px);
@@ -31,13 +31,13 @@
       z-index: 1;
     }
   }
-  .main__contents{
+  .chat-main__contents{
     width: calc(100vw - 340px);
     padding:134px 40px 90px;
     .message{
       margin-bottom: 40px;
     }
-      .main__contents__name{
+      .chat-main__contents__name{
         font-weight: bold;
         font-size: 16px;
         color: #434A54;
@@ -45,17 +45,17 @@
         margin-right: 10px;
         margin-bottom: 10px;
       }
-      .main__contents__time{
+      .chat-main__contents__time{
         color: #999999;
         font-size: 12px;
       }
-      .main__contents__message{
+      .chat-main__contents__message{
         clear: both;
         font-size: 14px;
         color: #434A54;
       }
   }
-  .main__inputarea{
+  .chat-main__inputarea{
     background-color: #aaaaaa;
     padding: 20px 40px;
     position: fixed;

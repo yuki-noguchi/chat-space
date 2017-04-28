@@ -1,10 +1,10 @@
-.menu {
+.chat-menu {
   color: #ffffff;
   width: 260px;
   background-color: #2f3e51;
   float: left;
   height: 100%;
-    .menu__user{
+    .chat-menu__user{
       height :88px;
       padding:0 20px 27px;
       background-color: #253141;
@@ -22,7 +22,7 @@
           }
         }
     }
-    .menu__group{
+    .chat-menu__group{
       padding:0 20px 0;
       margin-top: 124px;
       .group-name{
