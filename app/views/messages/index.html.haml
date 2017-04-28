@@ -35,6 +35,7 @@
       sampleグループ
     %h2
       Aさん、Bさん
+    %input.edit-btn{ type: :submit, value: "Edit" }
   %div.main__contents
     %div.message
       %div.main__contents__name
@@ -57,7 +58,30 @@
         2017年4月27日 06:40:10
       %div.main__contents__message
         こんにちは
+    %div.message
+      %div.main__contents__name
+        yukinoguchi
+      %div.main__contents__time
+        2017年4月27日 06:40:10
+      %div.main__contents__message
+        こんにちは
+    %div.message
+      %div.main__contents__name
+        yukinoguchi
+      %div.main__contents__time
+        2017年4月27日 06:40:10
+      %div.main__contents__message
+        こんにちは
+    %div.message
+      %div.main__contents__name
+        yukinoguchi
+      %div.main__contents__time
+        2017年4月27日 06:40:10
+      %div.main__contents__message
+        こんにちは
   %div.main__inputarea
     %form
-      %input.text{ type: :text }
-      %input.btn{ type: :submit, value: "Send" }
+      %div.textarea
+        %input.text{ type: :text }
+        %input.img-btn{ type: :submit, value: "&#xf03e;".html_safe }
+      %input.send-btn{ type: :submit, value: "Send" }
