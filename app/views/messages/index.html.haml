@@ -5,10 +5,11 @@
 .chat-menu
   .chat-menu__user
     %h1
-      Yuki Noguchi
+      = current_user.name
       %span.icons
-        %i(class="fa fa-cog" aria-hidden="true")
-        %i(class="fa fa-pencil-square-o" aria-hidden="true")
+        = link_to edit_user_registration_path do
+          %i.fa.fa-cog
+        %i.fa.fa-pencil-square-o
   .chat-menu__group
     %ul
       %li
@@ -25,7 +26,7 @@
         .group-name
           sample_group1
         .group-message
-          まだメッセージはありません
+          = current_user.id
 
 <!-- チャット欄 -->
 .chat-main
