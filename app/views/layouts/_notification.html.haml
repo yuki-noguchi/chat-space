@@ -1,5 +1,6 @@
 .notification
-  %p.notice
-    = notice
-  %p.alert
-    = alert
+  %p
+    = flash[:notice]
+  %p
+    = flash[:alert]
+
