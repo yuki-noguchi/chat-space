@@ -5,11 +5,11 @@
 .chat-menu
   .chat-menu__user
     %h1
-      Yuki Noguchi
+      = current_user.name
       %span.icons
         = link_to edit_user_registration_path do
-          %i(class="fa fa-cog" aria-hidden="true")
-        %i(class="fa fa-pencil-square-o" aria-hidden="true")
+          %i.fa.fa-cog
+        %i.fa.fa-pencil-square-o
   .chat-menu__group
     %ul
       %li
