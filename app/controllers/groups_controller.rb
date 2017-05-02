@@ -8,5 +8,9 @@ class GroupsController < ApplicationController
     @user = User.all
   end
 
-
+  def create
+    Group.create(group_params)
+    binding.pry
+    redirect_to controller: :messages, action: :index
+  end
 end
