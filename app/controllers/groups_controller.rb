@@ -13,4 +13,9 @@ class GroupsController < ApplicationController
     binding.pry
     redirect_to controller: :messages, action: :index
   end
+
+  private
+  def group_params
+    params.require(:group).permit(:name, :user_ids)
+  end
 end
