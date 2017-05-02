@@ -1,10 +1,5 @@
 .chat-group-form
   %h1 チャットグループ編集
-  = form_for @name do |f|
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_name"} グループ名
-      .chat-group-form__field--right
-        %input#chat_group_name.chat-group-form__input{:name => "chat_group[name]", :placeholder => "グループ名を入力してください", :type => "text", :value => "ほげー"}/
-= render 'groups/member'
-= render 'groups/submit'
+  = form_for @name, html: { id: 'new_chat_group', class: 'new_chat_group' } do |f|
+    = render "groups/add-member", f: f
+    = render 'groups/submit', f: f

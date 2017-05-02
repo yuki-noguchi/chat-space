@@ -1,15 +1,10 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = form_for @name do |f|
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_name"} グループ名
-      .chat-group-form__field--right
-        %input#chat_group_name.chat-group-form__input{:name => "chat_group[name]", :placeholder => "グループ名を入力してください", :type => "text"}/
-= render 'groups/member'
-.chat-group-form__field--right
-        #chat-group-users
-          #chat-group-user-22.chat-group-user.clearfix
-            %input{:name => "chat_group[user_ids][]", :type => "hidden", :value => "22"}/
-            %p.chat-group-user__name seo_kyohei
-= render 'groups/submit'
+  = form_for @name, html: { id: 'new_chat_group', class: 'new_chat_group' } do |f|
+    = render "groups/add-member", f: f
+    .chat-group-form__field--right
+      #chat-group-users
+        #chat-group-user-22.chat-group-user.clearfix
+          = f.hidden_field :name, value: 22
+          %p.chat-group-user__name seo_kyohei
+    = render 'groups/submit', f: f
