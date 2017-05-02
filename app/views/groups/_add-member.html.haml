@@ -9,7 +9,8 @@
   .chat-group-form__field--right
     .chat-group-form__search.clearfix
       -# = f.text_field :name, placeholder: "追加したいユーザー名を入力してください", id: 'user-search-field', class: 'chat-group-form__input'
-      = f.collection_check_boxes(:user_ids, @user, :id, :name)
+      = collection_check_boxes(:group, :user_ids, @user, :id, :name) do |t|
+        - t.label { t.check_box + t.text }
     #user-search-result
 .chat-group-form__field.clearfix
   .chat-group-form__field--left
