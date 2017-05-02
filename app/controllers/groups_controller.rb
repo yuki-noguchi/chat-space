@@ -4,6 +4,9 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @name = ""
+    @group = Group.new
+    @user = User.all
   end
+
+
 end
