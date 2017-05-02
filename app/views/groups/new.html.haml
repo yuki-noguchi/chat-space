@@ -1,10 +1,9 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = form_for @group, html: { id: 'new_chat_group', class: 'new_chat_group' } do |f|
+  = form_for @group, id: 'new_chat_group', class: 'new_chat_group' do |f|
     = render "groups/add-member", f: f
     .chat-group-form__field--right
       #chat-group-users
         #chat-group-user-22.chat-group-user.clearfix
-          -# = f.hidden_field :name, value: 22
           %p.chat-group-user__name seo_kyohei
     = render 'groups/submit', f: f
