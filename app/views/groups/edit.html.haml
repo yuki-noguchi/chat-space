@@ -1,0 +1,5 @@
+.chat-group-form
+  %h1 チャットグループ編集
+  = form_for @name, html: { id: 'new_chat_group', class: 'new_chat_group' } do |f|
+    = render "groups/add-member", f: f
+    = render 'groups/submit', f: f
