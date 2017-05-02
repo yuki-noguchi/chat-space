@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
 
   def create
     Group.create(group_params)
-    redirect_to controller: :messages, action: :index
+    redirect_to root_path
   end
 
   private
