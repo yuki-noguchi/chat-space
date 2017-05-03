@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @groups = Group.order('created_at DESC')
+    @groups = current_user.groups.order('created_at DESC')
     @users = Group.find(params[:id]).users
   end
 
