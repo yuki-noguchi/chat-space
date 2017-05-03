@@ -9,6 +9,5 @@
   .chat-group-form__field--right
     .chat-group-form__search.clearfix
       #user-search-field.chat-group-form__input
-        = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |t|
-          - t.label { t.check_box + t.text }
+        = f.collection_check_boxes(:user_ids, User.all, :id, :name)
     #user-search-result
