@@ -7,7 +7,7 @@
   float: left;
   height: 100%;
     &__user{
-      height :88px;
+      height : 88px;
       padding:0 20px 27px;
       background-color: #253141;
       width: 260px;
@@ -25,9 +25,10 @@
     }
     .chat-menu__group{
       padding:0 20px 0;
+      background-color: #2f3e51;
+      min-height: calc(100% - 115px);
       &__box{
         color: #ffffff;
-        background-color: #2f3e51;
         margin: 0 -20px 0;
         padding: 0 20px 0;
         height: 100%;
