@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :get_group, only: [:show, :edit, :update]
   def new
     @group = Group.new
   end
@@ -15,16 +16,13 @@ class GroupsController < ApplicationController
 
   def show
     @groups = Group.order('created_at DESC')
-    @group = Group.find(params[:id])
     @users = Group.find(params[:id]).users
   end
 
   def edit
-    @group = Group.find(params[:id])
   end
 
   def update
-    @group = Group.find(params[:id])
     if @group.update(group_params)
       redirect_to group_path, notice: 'グループ編集に成功しました'
     else
@@ -37,5 +35,9 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:name, { user_ids: [] })
+  end
+
+  def get_group
+    @group = Group.find(params[:id])
   end
 end
