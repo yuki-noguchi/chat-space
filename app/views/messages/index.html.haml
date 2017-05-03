@@ -11,21 +11,12 @@
             %i.fa.fa-pencil-square-o
     .chat-menu__group
       %ul
-        %li
-          .group-name
-            sample_group1
-          .group-message
-            まだメッセージはありません
-        %li
-          .group-name
-            sample_group1
-          .group-message
-            まだメッセージはありません
-        %li
-          .group-name
-            sample_group1
-          .group-message
-            = current_user.id
+        - @groups.each do |group|
+          %li
+            .group-name
+              = group.name
+            .group-message
+              まだ投稿はありません
 
   <!-- チャット欄 -->
   .chat-main
