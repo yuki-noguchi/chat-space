@@ -1,7 +1,7 @@
 .chat-main
   .chat-main__header
     %h1
-      sampleグループ
+      = @group.name if @group.name
     %h2
       Aさん、Bさん
     %input.edit-btn{ type: :submit, value: "Edit" }
