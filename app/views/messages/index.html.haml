@@ -1,4 +1,11 @@
 .wrapper
   = render 'layouts/chat-menu'
-  = render 'layouts/chat-main'
+  .chat-main
+    .chat-main__header
+      %h1
+        aaa
+      %h2
+        Aさん、Bさん
+      %input.edit-btn{ type: :submit, value: "Edit" }
+    = render 'layouts/chat-main'
 

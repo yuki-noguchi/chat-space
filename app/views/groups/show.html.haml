@@ -1,3 +1,12 @@
 .wrapper
   = render 'layouts/chat-menu'
-  = render 'layouts/chat-main'
+  .chat-main
+    .chat-main__header
+      %h1
+        = @group.name
+      %h2
+        Member :
+        - @users.each do |user|
+          = user.name
+      %input.edit-btn{ type: :submit, value: "Edit" }
+    = render 'layouts/chat-main'
