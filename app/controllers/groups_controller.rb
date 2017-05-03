@@ -1,8 +1,4 @@
 class GroupsController < ApplicationController
-  def edit
-    @name = ""
-  end
-
   def new
     @group = Group.new
   end
@@ -21,6 +17,16 @@ class GroupsController < ApplicationController
     @groups = Group.all
     @group = Group.find(params[:id])
     @users = Group.find(params[:id]).users
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    group = Group.find(params[:id])
+    group.update(group_params)
+    redirect_to action: :show
   end
 
   private
