@@ -1,0 +1,17 @@
+.chat-menu
+  .chat-menu__user
+    %h1
+      = current_user.name
+      %span.icons
+        = link_to edit_user_registration_path do
+          %i.fa.fa-cog
+        = link_to new_group_path do
+          %i.fa.fa-pencil-square-o
+  .chat-menu__group
+    - @groups.each do |group|
+      = link_to "/groups/#{group.id}" do
+        .chat-menu__group__box
+          .group-name
+            = group.name
+          .group-message
+            まだ投稿はありません
