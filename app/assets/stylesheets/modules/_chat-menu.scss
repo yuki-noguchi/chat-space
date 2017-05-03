@@ -1,5 +1,7 @@
 @import "./modules/chat-body";
 .chat-menu {
+  overflow-y:auto;
+  position: fixed;
   color: #ffffff;
   width: 260px;
   background-color: #2f3e51;
