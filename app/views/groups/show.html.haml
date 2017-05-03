@@ -8,5 +8,5 @@
         Member :
         - @users.each do |user|
           = user.name
-      %input.edit-btn{ type: :submit, value: "Edit" }
+      = button_to 'Edit', "/groups/#{@group.id}/edit", class: 'edit-btn', method: :get
     = render 'layouts/chat-main'
