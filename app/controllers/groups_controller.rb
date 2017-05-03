@@ -13,7 +13,9 @@ class GroupsController < ApplicationController
     if group.save
       redirect_to root_path
     else
-      redirect_to new_group_path
+      @group = Group.new
+      @users = User.all
+      render :new
     end
   end
 
