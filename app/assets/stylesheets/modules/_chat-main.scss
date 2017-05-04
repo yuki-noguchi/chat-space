@@ -1,8 +1,10 @@
 @import "./modules/chat-body";
 .chat-main{
+  overflow-y: auto;
   background-color: #fafafa;
-  height: 100%;
+  min-height: 100vh;
   float: right;
+  margin-left: 260px;
   .chat-main__header{
     position: fixed;
     background-color: white;
