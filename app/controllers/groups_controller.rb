@@ -2,6 +2,16 @@ class GroupsController < ApplicationController
 
   before_action :set_group, only: [:edit, :update]
 
+  def index
+    @groups = current_user.groups.order('created_at DESC')
+    @last_group = current_user.groups.last
+    @users = current_user.groups.last.users
+    @message = Message.new
+    @group = Group.last
+    messages = Message.all
+    @messages = @group.messages
+  end
+
   def new
     @group = Group.new
   end
@@ -14,9 +24,6 @@ class GroupsController < ApplicationController
       flash.now[:error] = 'グループの作成に失敗しました'
       render :new
     end
-  end
-
-  def show
   end
 
   def edit
@@ -41,4 +48,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
+  def message_params
+    params.require(:message).permit(:body).merge(user_id: current_user.id, group_id: params[:group_id])
+  end
 end
