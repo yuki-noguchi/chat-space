@@ -8,5 +8,5 @@
         Member :
         - @users.each do |user|
           = user.name
-      = button_to 'Edit', "/groups/#{@group.id}/edit", class: 'edit-btn', method: :get
+      = button_to 'Edit', edit_group_path(@group), class: 'edit-btn', method: :get
     = render 'shared/chat-main'
