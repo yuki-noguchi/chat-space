@@ -9,9 +9,4 @@
           %i.fa.fa-pencil-square-o
   .chat-menu__group
     - @groups.each do |group|
-      = link_to "/groups/#{group.id}/messages" do
-        .chat-menu__group__box
-          .group-name
-            = group.name
-          .group-message
-            まだ投稿はありません
+      = render 'shared/chat-menu__group', group: group
