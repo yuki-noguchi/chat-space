@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
 
   def create
     Message.create(message_params)
-    redirect_to root_path
+    redirect_to action: :index
   end
 
   private
