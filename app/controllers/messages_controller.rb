@@ -1,7 +1,18 @@
 class MessagesController < ApplicationController
   def index
+    @group = Group.find(params[:group_id])
     @groups = current_user.groups.order('created_at DESC')
-    @group = current_user.groups.last
-    @users = current_user.groups.last.users
+    @message = Message.new
+  end
+
+  def create
+    Message.create(message_params)
+    redirect_to action: :index
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:body).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 end

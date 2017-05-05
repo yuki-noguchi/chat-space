@@ -1,98 +1,17 @@
-.chat-main__contents
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:30:40
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:33:01
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-  .message
-    .chat-main__contents__name
-      yukinoguchi
-    .chat-main__contents__time
-      2017年4月27日 06:40:10
-    .chat-main__contents__message
-      こんにちは
-.chat-main__inputarea
-  %form
+.chat-main
+  .chat-main__header
+    %h1
+      = @group.name
+    %h2
+      Member :
+      = render partial: "shared/group_user", collection: @group.users
+    = button_to 'Edit', edit_group_path(@group), class: 'edit-btn', method: :get
+  .chat-main__contents
+    .message
+      = render partial: "shared/group_message", collection: @group.messages, as: :message
+  .chat-main__inputarea
     .textarea
-      %input.text{ type: :text }
-      %input.img-btn{ type: :submit, value: "&#xf03e;".html_safe }
-    %input.send-btn{ type: :submit, value: "Send" }
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: 'text'
+        %input.img-btn{ type: :submit, value: "&#xf03e;".html_safe }
+        = f.submit "Send", class: 'send-btn'

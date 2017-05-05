@@ -8,10 +8,4 @@
         = link_to new_group_path do
           %i.fa.fa-pencil-square-o
   .chat-menu__group
-    - @groups.each do |group|
-      = link_to "/groups/#{group.id}" do
-        .chat-menu__group__box
-          .group-name
-            = group.name
-          .group-message
-            まだ投稿はありません
+    = render partial: "shared/group", collection: @groups

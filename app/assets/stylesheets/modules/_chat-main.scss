@@ -2,7 +2,7 @@
 .chat-main{
   overflow-y: auto;
   background-color: #fafafa;
-  height: 100%;
+  min-height: 100vh;
   float: right;
   margin-left: 260px;
   .chat-main__header{
@@ -38,8 +38,6 @@
     width: calc(100vw - 340px);
     padding:134px 40px 90px;
     .message{
-      margin-bottom: 40px;
-    }
       .chat-main__contents__name{
         font-weight: bold;
         font-size: 16px;
@@ -56,7 +54,9 @@
         clear: both;
         font-size: 14px;
         color: #434A54;
+        margin-bottom: 40px;
       }
+    }
   }
   .chat-main__inputarea{
     background-color: #aaaaaa;

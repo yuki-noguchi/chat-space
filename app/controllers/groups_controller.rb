@@ -1,6 +1,12 @@
 class GroupsController < ApplicationController
 
-  before_action :set_group, only: [:show, :edit, :update]
+  before_action :set_group, only: [:edit, :update]
+
+  def index
+    @group = Group.last
+    @groups = current_user.groups.order('created_at DESC')
+    @message = Message.new
+  end
 
   def new
     @group = Group.new
@@ -9,16 +15,11 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to root_path, notice: 'グループ作成に成功しました'
+      redirect_to group_messages_path(@group), notice: 'グループ作成に成功しました'
     else
       flash.now[:error] = 'グループの作成に失敗しました'
       render :new
     end
-  end
-
-  def show
-    @groups = current_user.groups.order('created_at DESC')
-    @users = @group.users
   end
 
   def edit
@@ -26,7 +27,7 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      redirect_to group_path, notice: 'グループ編集に成功しました'
+      redirect_to group_messages_path(@group), notice: 'グループ編集に成功しました'
     else
       flash.now[:error] = 'グループの編集に失敗しました'
       render :edit
@@ -41,5 +42,9 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def message_params
+    params.require(:message).permit(:body).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 end
