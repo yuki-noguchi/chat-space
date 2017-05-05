@@ -3,4 +3,8 @@ class Group < ApplicationRecord
   has_many :users, through: :group_users
   validates :name, presence: true
   has_many :messages
+
+  def try
+    messages.last.try(:body) || '投稿がまだありません'
+  end
 end
