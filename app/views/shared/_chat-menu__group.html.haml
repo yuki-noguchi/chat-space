@@ -3,4 +3,7 @@
     .group-name
       = group.name
     .group-message
-      まだ投稿はありません
+      - if group.messages.present?
+        = group.messages.last.body
+      - else
+        投稿がありません
