@@ -3,7 +3,4 @@
     .group-name
       = group.name
     .group-message
-      - if group.messages.present?
-        = group.messages.last.body
-      - else
-        投稿がありません
+      = group.messages.last.try(:body) || '投稿がまだありません'
