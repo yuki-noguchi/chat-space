@@ -3,12 +3,12 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def index
-    @groups = current_user.groups.order('created_at DESC')
-    @users = current_user.groups.last.users
-    @message = Message.new
     @group = Group.last
-    messages = Message.all
+    @groups = current_user.groups.order('created_at DESC')
+    @message = Message.new
     @messages = @group.messages
+    @users = current_user.groups.last.users
+    messages = Message.all
   end
 
   def new
