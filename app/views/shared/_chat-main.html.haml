@@ -1,15 +1,24 @@
-.chat-main__contents
-  .message
-    - @group.messages.each do |message|
-      .chat-main__contents__name
-        = message.user.name
-      .chat-main__contents__time
-        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-      .chat-main__contents__message
-        = message.body
-.chat-main__inputarea
-  .textarea
-    = form_for [@group, @message] do |f|
-      = f.text_field :body, class: 'text'
-      %input.img-btn{ type: :submit, value: "&#xf03e;".html_safe }
-      = f.submit "Send", class: 'send-btn'
+.chat-main
+  .chat-main__header
+    %h1
+      = @group.name
+    %h2
+      Member :
+      - @group.users.each do |user|
+        = user.name
+    = button_to 'Edit', edit_group_path(@group), class: 'edit-btn', method: :get
+  .chat-main__contents
+    .message
+      - @group.messages.each do |message|
+        .chat-main__contents__name
+          = message.user.name
+        .chat-main__contents__time
+          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        .chat-main__contents__message
+          = message.body
+  .chat-main__inputarea
+    .textarea
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: 'text'
+        %input.img-btn{ type: :submit, value: "&#xf03e;".html_safe }
+        = f.submit "Send", class: 'send-btn'
