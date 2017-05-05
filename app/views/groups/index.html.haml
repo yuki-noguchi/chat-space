@@ -1,12 +1,13 @@
 .wrapper
   = render 'shared/chat-menu'
-  .chat-main
-    .chat-main__header
-      %h1
-        = @group.name
-      %h2
-        Member :
-        - @groups.first.users.each do |user|
-          = user.name
-      = button_to 'Edit', edit_group_path(@group), class: 'edit-btn', method: :get
-    = render 'shared/chat-main'
+  - if @groups.present?
+    .chat-main
+      .chat-main__header
+        %h1
+          = @group.name
+        %h2
+          Member :
+          - @groups.first.users.each do |user|
+            = user.name
+        = button_to 'Edit', edit_group_path(@group), class: 'edit-btn', method: :get
+      = render 'shared/chat-main'
