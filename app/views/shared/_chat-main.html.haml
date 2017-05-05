@@ -1,7 +1,7 @@
 .chat-main
   .chat-main__header
     %h1
-      = @group.name
+      = @groups.first.name
     %h2
       Member :
       = render partial: "shared/group_user", collection: @group.users
