@@ -8,5 +8,4 @@
         = link_to new_group_path do
           %i.fa.fa-pencil-square-o
   .chat-menu__group
-    - @groups.each do |group|
-      = render 'shared/chat-menu__group', group: group
+    = render partial: "shared/group", collection: @groups
