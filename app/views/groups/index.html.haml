@@ -6,7 +6,7 @@
         = @group.name
       %h2
         Member :
-        - @groups.last.users.each do |user|
+        - @groups.first.users.each do |user|
           = user.name
       = button_to 'Edit', edit_group_path(@group), class: 'edit-btn', method: :get
     = render 'shared/chat-main'
