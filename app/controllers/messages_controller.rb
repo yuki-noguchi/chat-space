@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
   before_action :set_group, only: [:index, :create]
 
   def index
-    @groups = current_user.groups.order('created_at DESC')
     @message = Message.new
   end
 
@@ -12,7 +11,8 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path(@group), notice: 'メッセージの送信に成功しました'
     else
-      redirect_to group_messages_path(@group), alert: 'メッセージを入力してください'
+      flash.now[:error] = 'メッセージを入力してください'
+      render :index
     end
   end
 
@@ -24,5 +24,6 @@ class MessagesController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+    @groups = current_user.groups.order('created_at DESC')
   end
 end
