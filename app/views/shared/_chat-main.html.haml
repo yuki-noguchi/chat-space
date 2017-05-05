@@ -1,6 +1,6 @@
 .chat-main__contents
   .message
-    - @messages.each do |message|
+    - @group.messages.each do |message|
       .chat-main__contents__name
         = message.user.name
       .chat-main__contents__time

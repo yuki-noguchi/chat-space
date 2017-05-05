@@ -6,9 +6,6 @@ class GroupsController < ApplicationController
     @group = Group.last
     @groups = current_user.groups.order('created_at DESC')
     @message = Message.new
-    @messages = @group.messages
-    @users = current_user.groups.last.users
-    messages = Message.all
   end
 
   def new
