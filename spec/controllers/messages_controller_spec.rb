@@ -9,7 +9,6 @@ describe MessagesController, type: :controller do
   let(:params) { { message: attributes_for(:message), group_id: @group.id } }
 
   describe 'GET #index'do
-
     before do
       get :index, params: params
     end
@@ -25,8 +24,7 @@ describe MessagesController, type: :controller do
   end
 
   describe 'POST #create' do
-    context '
-with valid parameters' do
+    context 'with valid parameters' do
       it "can be saved" do
       expect{
         post :create, params: params
@@ -34,7 +32,7 @@ with valid parameters' do
       end
       it 'redirects to group_messages_path' do
         post :create, params: params
-        expect(response).to redirect_to group_messages_path(group_id: @group.id)
+        expect(response).to redirect_to group_messages_path(@group.id)
       end
     end
 
