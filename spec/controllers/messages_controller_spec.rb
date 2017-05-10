@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe MessagesController, type: :controller do
   let(:user) { create(:user) }
+  let(:group) { user.groups.first }
   before do
-    @group = user.groups.first
     login_user user
   end
-  let(:params) { { message: attributes_for(:message), group_id: @group.id } }
+  let(:params) { { message: attributes_for(:message), group_id: group.id } }
 
   describe 'GET #index'do
     before do
@@ -32,12 +32,12 @@ describe MessagesController, type: :controller do
       end
       it 'redirects to group_messages_path' do
         post :create, params: params
-        expect(response).to redirect_to group_messages_path(@group.id)
+        expect(response).to redirect_to group_messages_path(group)
       end
     end
 
     context 'with invalid parameters' do
-      let(:params) { { message: attributes_for(:message, body: ""), group_id: @group.id } }
+      let(:params) { { message: attributes_for(:message, body: ""), group_id: group.id } }
       it 'cannnot be saved' do
         expect{
         post :create, params: params
