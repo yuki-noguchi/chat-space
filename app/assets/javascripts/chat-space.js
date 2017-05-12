@@ -16,6 +16,11 @@ $(function(){
     $('.chat-main__contents').append(html);
   }
 
+  function buildGROUP(message) {
+    var group_id = message.group_id
+    $('[data-group-id=' + group_id + ']').text(message.body)
+  }
+
   $(document).on('submit', '#message_form', function(e){
     e.preventDefault();
     // var $form = $(this)
@@ -31,8 +36,7 @@ $(function(){
     })
     .done(function(data){
       buildMESSAGE(data);
-      group_id = data.group_id
-      $('[data-group-id=' + group_id + ']').text(data.body)
+      buildGROUP(data);
       $('.notification').text("メッセージの送信に成功しました")
       text.val('');
       $('.send-btn').prop('disabled', false)
