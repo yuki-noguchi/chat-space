@@ -6,12 +6,12 @@
       Member :
       = render partial: "shared/group_user", collection: @group.users
     = button_to 'Edit', edit_group_path(@group), class: 'edit-btn', method: :get
-  .chat-main__contents
-    .message
+  %ul.chat-main__contents
+    %li.message
       = render partial: "shared/group_message", collection: @group.messages, as: :message
   .chat-main__inputarea
     .textarea
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: { id: 'message_form' } do |f|
         = f.text_field :body, class: 'text'
         %input.img-btn{ type: :submit, value: "&#xf03e;".html_safe }
         = f.submit "Send", class: 'send-btn'
