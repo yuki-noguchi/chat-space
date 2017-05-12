@@ -1,7 +1,6 @@
 $(function(){
-  function buildHTML(message) {
+  function buildMESSAGE(message) {
     var m = moment(message.created_at);
-
     var html =
     '<li class="message">'
     + '<div class="chat-main__contents__name">'
@@ -14,7 +13,7 @@ $(function(){
     + message.body
     +'</div>'
     + '</li>'
-    return html;
+    $('.chat-main__contents').append(html);
   }
 
   $(document).on('submit', '#message_form', function(e){
@@ -31,10 +30,9 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      var html = buildHTML(data);
+      buildMESSAGE(data);
       group_id = data.group_id
       $('[data-group-id=' + group_id + ']').text(data.body)
-      $('.chat-main__contents').append(html);
       $('.notification').text("メッセージの送信に成功しました")
       text.val('');
       $('.send-btn').prop('disabled', false)
