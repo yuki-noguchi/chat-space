@@ -2,5 +2,5 @@
   .chat-menu__group__box
     .group-name
       = group.name
-    .group-message
+    %div{ class: 'group-message', 'data-group-id': group.id }
       = group.try
