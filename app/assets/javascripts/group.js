@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   var html = {}
   function appendList(user){
     html.name = $(`<li class="chat-group-user clearfix" data-user_id=${user.id} data-user_name=${user.name}>`).append(`<p class="chat-group-user__name">${user.name}</p>`)
