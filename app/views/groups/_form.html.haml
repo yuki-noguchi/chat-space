@@ -9,9 +9,18 @@
       = f.label :chat_group, "チャットメンバーを追加", class: 'chat-group-form__label'
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        #user-search-field.chat-group-form__input
-          = f.collection_check_boxes(:user_ids, User.all, :id, :name)
-      #user-search-result
+        #user-search-field
+          = text_field_tag :keyword, "", placeholder: "追加したいユーザー名を入力してください", class: 'chat-group-form__input'
+        %ul#user-search-result
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :chat_group, 'チャットメンバー', class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      #chat-group-users
+        .chat-group-user.clearfix
+          = hidden_field_tag "group[user_ids][]", current_user.id
+          %p.chat-group-user__name
+            = current_user.name
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
