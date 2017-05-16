@@ -1,7 +1,7 @@
 $(function(){
   var html = {}
   function appendList(user){
-    html.name = $('<li class="chat-group-user clearfix" data-user_id=' + user.id + ' data-user_name=' + user.name + '>').append('<p class="chat-group-user__name">' + user.name + '</p>')
+    html.name = $(`<li class="chat-group-user clearfix" data-user_id=${user.id} data-user_name=${user.name}>`).append(`<p class="chat-group-user__name">${user.name}</p>`)
     html.btn = $(html.name).append('<div class="chat-group-user__btn chat-group-user__btn--add"> 追加</div>')
     $('#user-search-result').append(html.name)
   }
@@ -29,7 +29,7 @@ $(function(){
     var user_id = $(this).parent('.chat-group-user').data('user_id');
     var user_name = $(this).parent('.chat-group-user').data('user_name');
     $(this).parent('.chat-group-user').hide();
-    var chat_member = '<div class="chat-group-user clearfix"><input type=hidden name="group[user_ids][]" value=' + user_id + '></input><p class="chat-group-user__name">' + user_name + '</p><div class="chat-group-user__btn chat-group-user__btn--remove"> 削除</div></div>'
+    var chat_member = `<div class="chat-group-user clearfix"><input type=hidden name="group[user_ids][]" value=${user_id}></input><p class="chat-group-user__name">${user_name}</p><div class="chat-group-user__btn chat-group-user__btn--remove"> 削除</div></div>`
     $('#chat-group-users').append(chat_member)
   });
 
