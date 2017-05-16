@@ -29,7 +29,17 @@ $(function(){
     var user_id = $(this).parent('.chat-group-user').data('user_id');
     var user_name = $(this).parent('.chat-group-user').data('user_name');
     $(this).parent('.chat-group-user').hide();
-    var chat_member = `<div class="chat-group-user clearfix"><input type=hidden name="group[user_ids][]" value=${user_id}></input><p class="chat-group-user__name">${user_name}</p><div class="chat-group-user__btn chat-group-user__btn--remove"> 削除</div></div>`
+    var chat_member =
+    `<div class="chat-group-user clearfix">
+    <input type=hidden name="group[user_ids][]" value=${user_id}>
+    </input>
+    <p class="chat-group-user__name">
+    ${user_name}
+    </p>
+    <div class="chat-group-user__btn chat-group-user__btn--remove">
+    削除
+    </div>
+    </div>`
     $('#chat-group-users').append(chat_member)
   });
 
