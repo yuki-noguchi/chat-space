@@ -13,5 +13,6 @@
     .textarea
       = form_for [@group, @message], html: { id: 'message_form' } do |f|
         = f.text_field :body, class: 'text'
-        %input.img-btn{ type: :submit, value: "&#xf03e;".html_safe }
+        = label_tag 'message[image]', '', class: 'img-btn fa-image'
+        = f.file_field :image, style: 'display:none'
         = f.submit "Send", class: 'send-btn'
