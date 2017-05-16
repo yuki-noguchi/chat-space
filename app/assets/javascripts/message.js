@@ -4,7 +4,7 @@ $(function(){
     var html =
     '<li class="message">'
     + '<div class="chat-main__contents__name">'
-    + $('.chat-main__contents__name').html()
+    + message.name
     + '</div>'
     + '<div class="chat-main__contents__time">'
     + m.format("YYYY年MM月DD日 HH時mm分")
@@ -35,7 +35,7 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      buildMESSAGE(data);
+      buildMESSAGE(data)
       buildGROUP(data);
       $('.notification').text("メッセージの送信に成功しました")
       text.val('');
