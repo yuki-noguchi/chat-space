@@ -66,3 +66,4 @@ gem 'rails-controller-testing'
 gem 'gon'
 gem 'carrierwave'
 gem 'jquery-turbolinks'
+gem "rmagick", "~> 2.16.0"

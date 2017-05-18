@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
     @group = current_user.groups.last
     @groups = current_user.groups.order('created_at DESC')
     @message = Message.new
+    redirect_to group_messages_path(@group) if @group
   end
 
   def new
@@ -44,7 +45,4 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  def message_params
-    params.require(:message).permit(:body).merge(user_id: current_user.id, group_id: params[:group_id])
-  end
 end
