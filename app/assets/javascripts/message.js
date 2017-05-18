@@ -6,7 +6,7 @@ $(function(){
     html.created_at = $(`<li class="message">`).append(`<div class="chat-main__contents__time">${m.format("YYYY年MM月DD日 HH時mm分")}</div>`)
     html.body = $(`<li class="message">`).append(`<div class="chat-main__contents__message">${message.body}</div>`)
     html.image = $(`<li class="message">`).append(`<div class="chat-main__contents__image">${message.image}</div>`)
-    if($(message.image).length){
+    if(message.image){
       $('.chat-main__contents').append(html.name, html.created_at, html.body, html.image);
     } else {
       $('.chat-main__contents').append(html.name, html.created_at, html.body);
