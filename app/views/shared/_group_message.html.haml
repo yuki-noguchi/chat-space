@@ -5,4 +5,4 @@
 .chat-main__contents__message
   = message.body
 .chat-main__contents__image
-  = image_tag message.image.thumb.url if message.image.present?
+  = image_tag message.image.thumb.url if message.image.url
