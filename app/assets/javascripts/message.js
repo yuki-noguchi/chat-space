@@ -1,19 +1,17 @@
 $(function(){
   function buildMESSAGE(message) {
     var m = moment(message.created_at);
-    var html =
-    '<li class="message">'
-    + '<div class="chat-main__contents__name">'
-    + message.name
-    + '</div>'
-    + '<div class="chat-main__contents__time">'
-    + m.format("YYYY年MM月DD日 HH時mm分")
-    + '</div>'
-    + '<div class="chat-main__contents__message">'
-    + message.body
-    +'</div>'
-    + '</li>'
-    $('.chat-main__contents').append(html);
+    var html ={}
+    html.name = $(`<li class="message">`).append(`<div class="chat-main__contents__name">${message.name}</div>`)
+    html.created_at = $(`<li class="message">`).append(`<div class="chat-main__contents__time">${m.format("YYYY年MM月DD日 HH時mm分")}</div>`)
+    html.body = $(`<li class="message">`).append(`<div class="chat-main__contents__message">${message.body}</div>`)
+    html.image = $(`<li class="message">`).append(`<div class="chat-main__contents__image">${message.image}</div>`)
+    if($(message.image).length){
+      $('.chat-main__contents').append(html.name, html.created_at, html.body, html.image);
+    } else {
+      $('.chat-main__contents').append(html.name, html.created_at, html.body);
+    }
+
   }
 
   function buildGROUP(message) {
@@ -23,7 +21,6 @@ $(function(){
 
   $(document).on('submit', '#message_form', function(e){
     e.preventDefault();
-    // var $form = $(this)
     var formData = new FormData($('#message_form').get(0));
     var text = $('.text');
     $.ajax({
