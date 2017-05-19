@@ -2,16 +2,16 @@ $(function(){
   function buildMESSAGE(message) {
     var m = moment(message.created_at);
     var html ={}
-    html.name = $(`<li class="message">`).append(`<div class="chat-main__contents__name">${message.name}</div>`)
-    html.created_at = $(`<li class="message">`).append(`<div class="chat-main__contents__time">${m.format("YYYY年MM月DD日 HH時mm分")}</div>`)
-    html.body = $(`<li class="message">`).append(`<div class="chat-main__contents__message">${message.body}</div>`)
-    html.image = $(`<li class="message">`).append(`<div class="chat-main__contents__image">${message.image}</div>`)
+    html.name = $(`<div class="chat-main__contents__name">`).append(message.name)
+    html.created_at = $(`<div class="chat-main__contents__time">`).append(m.format("YYYY年MM月DD日 HH時mm分"))
+    html.body = $(`<div class="chat-main__contents__message">`).append(message.body)
+    html.image = $(`<div class="chat-main__contents__image">`).append(message.image)
     if(message.image){
-      $('.chat-main__contents').append(html.name, html.created_at, html.body, html.image);
+      var appendList = $('<li class="message" data-message-id="${message.id}">').append(html.name, html.created_at, html.body, html.image);
     } else {
-      $('.chat-main__contents').append(html.name, html.created_at, html.body);
+      var appendList = $('<li class="message" data-message-id="${message.id}">').append(html.name, html.created_at, html.body);
     }
-
+    $('.chat-main__contents').append(appendList);
   }
 
   function buildGROUP(message) {
@@ -32,7 +32,7 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      buildMESSAGE(data)
+      buildMESSAGE(data);
       buildGROUP(data);
       $('.notification').text("メッセージの送信に成功しました")
       text.val('');
