@@ -1,12 +1,18 @@
+
 class ImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
 
-  storage :file
-
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  if Rails.env.test?
+    storage :file
+  else
+    storage :fog
   end
+
+    def store_dir
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
+
 
   process :convert => 'jpg'
 
@@ -21,4 +27,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   def filename
     "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
   end
+
 end
