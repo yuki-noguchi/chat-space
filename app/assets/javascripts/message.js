@@ -45,7 +45,7 @@ $(function(){
       $('.send-btn').prop('disabled', false)
     });
   });
-  $(window).bind('load', function(){
+  $(window).load(function(){
     if(document.URL.match("messages")) {
       setInterval(update, 3000);
     };
