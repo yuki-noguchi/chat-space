@@ -7,8 +7,7 @@
       = render partial: "shared/group_user", collection: @group.users
     = button_to 'Edit', edit_group_path(@group), class: 'edit-btn', method: :get
   %ul.chat-main__contents
-    %li.message
-      = render partial: "shared/group_message", collection: @group.messages, as: :message
+    = render partial: "shared/group_message", collection: @group.messages, as: :message
   .chat-main__inputarea
     .textarea
       = form_for [@group, @message], html: { id: 'message_form' } do |f|
