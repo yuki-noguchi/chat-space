@@ -7,11 +7,13 @@ $(function(){
     html.body = $(`<div class="chat-main__contents__message">`).append(message.body)
     html.image = $(`<div class="chat-main__contents__image">`).append(message.image)
     if(message.image){
-      var appendList = $('<li class="message" data-message-id="${message.id}">').append(html.name, html.created_at, html.body, html.image);
+      var appendList = $(`<li class="message" data-id=${message.id}>`).append(html.name, html.created_at, html.body, html.image);
     } else {
-      var appendList = $('<li class="message" data-message-id="${message.id}">').append(html.name, html.created_at, html.body);
+      var appendList = $(`<li class="message" data-id="${message.id}">`).append(html.name, html.created_at, html.body);
     }
-    $('.chat-main__contents').append(appendList);
+    if(message.body){
+      $('.chat-main__contents').append(appendList[0]);
+    }
   }
 
   function buildGROUP(message) {
@@ -44,4 +46,30 @@ $(function(){
     });
   });
 
+  $(function(){
+    setInterval(update, 3000);
+  });
+
+  function update(){
+    if($('.message')[0]){
+      var message_id = $('.message:last').data().id;
+    } else {
+      var message_id = 0
+    }
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: {
+        message: { id: message_id }
+      },
+      dataType: 'json'
+    })
+    .always(function(data){
+      $.each(data, function(i, data){
+        buildMESSAGE(data);
+        buildGROUP(data);
+    });
+    });
+  }
 });
+
