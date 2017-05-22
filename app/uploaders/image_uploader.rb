@@ -25,7 +25,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
+    "#{Time.now.strftime('%Y%m%d%H%M')}.jpg" if original_filename.present?
   end
 
 end
